@@ -5,7 +5,6 @@ function NoBuildingText() {
 }
 
 function BuildingInfo(props) {
-    console.log(props.props);
     if (props.building.coordinates) {
         return <div>
             <div className="row">
@@ -41,8 +40,8 @@ const ViewBuilding = (props) => {
     const [buildingId, setBuildingId] = useState(props.selectedBuilding);
     // This will launch only if props.seletedBuilding value has chaged.
     useEffect(() => { setBuildingId(props.selectedBuilding) }, [props.selectedBuilding]);
-    const building = props.data.find((e) => e.id === buildingId)
-    console.log(props.deleteBuilding);
+    const building = props.data.find((e) => e.id === buildingId);
+
     if (building) {
         return <BuildingInfo  building={building} deleteBuilding={props.deleteBuilding}/>;
     }

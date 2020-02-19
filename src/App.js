@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
+import AddBuilding from './components/AddBuilding';
 import Credit from './components/Credit';
 
 const App = (props) => {
@@ -19,8 +20,13 @@ const App = (props) => {
     };
 
     const deleteBuilding = (id) => {
-        setBuildingData(buildingData.filter(el => el.id != id));
+        setBuildingData(buildingData.filter(el => el.id !== id));
         setSelectedBuilding(0);
+    }
+
+    const addBuilding = (evt) => {
+        evt.preventDefaut();
+        console.log(evt);
     }
 
 
