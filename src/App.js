@@ -47,7 +47,10 @@ const App = (props) => {
                         </div>
                     </div>
                     <div className="column2">
-                        <ViewBuilding/>
+                        <ViewBuilding
+                            data={props.data}
+                            selectedBuilding={selectedBuilding}
+                        />
                     </div>
                 </div>
                 <Credit/>
