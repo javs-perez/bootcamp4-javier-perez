@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 const BuildingList = (props) => {
-    let buildings = props.filterText ? props.data.filter((e) => e.name.indexOf(props.filterText) !== -1) : props.data
+    let buildings = props.filterText ? props.data.filter((e) => e.name.toLowerCase().indexOf(props.filterText.toLowerCase()) !== -1) : props.data
 
     const buildingList = buildings.map(directory => {
         return (
