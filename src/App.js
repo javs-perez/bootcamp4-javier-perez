@@ -11,8 +11,6 @@ const App = (props) => {
 
     const filterUpdate = (value) => {
         setFilterText(value);
-        console.log(value);
-        //Here you can set the filterText property of state to the value passed into this function
     };
 
     const selectedUpdate = (id) => {
@@ -43,6 +41,7 @@ const App = (props) => {
                                     data={props.data}
                                     selectedUpdate={selectedUpdate}
                                     selectedBuilding={selectedBuilding}
+                                    filterText={filterText}
                                 />
                             </table>
                         </div>
