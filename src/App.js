@@ -5,6 +5,7 @@ import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 
 const App = (props) => {
+    const [buildingData, setBuildingData] = useState(props.data)
     const [filterText, setFilterText] = useState('');
     const [selectedBuilding, setSelectedBuilding] = useState(0);
 
@@ -17,7 +18,10 @@ const App = (props) => {
         setSelectedBuilding(id);
     };
 
-
+    const deleteBuilding = (id) => {
+        setBuildingData(buildingData.filter(el => el.id != id));
+        setSelectedBuilding(0);
+    }
 
 
     return (
@@ -38,7 +42,7 @@ const App = (props) => {
                                     </td>
                                 </tr>
                                 <BuildingList
-                                    data={props.data}
+                                    data={buildingData}
                                     selectedUpdate={selectedUpdate}
                                     selectedBuilding={selectedBuilding}
                                     filterText={filterText}
@@ -50,6 +54,7 @@ const App = (props) => {
                         <ViewBuilding
                             data={props.data}
                             selectedBuilding={selectedBuilding}
+                            deleteBuilding={deleteBuilding}
                         />
                     </div>
                 </div>
